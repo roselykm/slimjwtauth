@@ -23,5 +23,38 @@ sample output:
 token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyYmsubmV0IiwiaWF0IjoxNDkwNzE1NjIxLCJleHAiOjE0OTA3MTY4MjF9.OfNnti8pmmtikxjCTYxbhjcnoM4STG0HBHHe0TyYtm8"
 }
 
+JWT authenticated route middleware:
+
+	//JWT authentication middleware
+	$jwtauth = function ($request, $response, $next) {
+	   $token_array = $request->getHeader('HTTP_AUTHORIZATION');
+
+	   if (count($token_array) == 0) {
+		   $data = Array(
+				"jwt_status" => "token_not_exist"
+			);	
+
+	   	return $response->withJson($data, 401)
+                         ->withHeader('Content-type', 'application/json');  				   	
+	   }
+
+		$token = $token_array[0];
+    	try
+    	{
+    		$tokenDecoded = JWT::decode($token, getenv('JWT_SECRET'), array('HS256'));
+	   	$response = $next($request, $response);
+	   	return $response;    		
+		}
+		catch(Exception $e)
+		{
+		   $data = Array(
+				"jwt_status" => "token_invalid"
+			);	
+
+	   	return $response->withJson($data, 401)
+                         ->withHeader('Content-type', 'application/json');
+		}		
+	};
+
 
  
