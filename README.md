@@ -86,12 +86,12 @@ To access secured route using jquery and authorization token:
       }
    });
   
-   //set authorization token in header
-   //sessionStorage.token is set either from Auth0 login
-   //or from API login with username/password returning a token (SSL)
-   $.ajaxPrefilter(function( options, oriOptions, jqXHR ) {
-      jqXHR.setRequestHeader("Authorization", sessionStorage.token);
-   }); 
+     //set authorization token in header
+     //sessionStorage.token is set either from Auth0 login
+     //or from API login with username/password returning a token (SSL)
+     $.ajaxPrefilter(function( options, oriOptions, jqXHR ) {
+        jqXHR.setRequestHeader("Authorization", sessionStorage.token);
+     }); 
    
      //access secured route using the token	
      $.ajax({
