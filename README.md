@@ -11,10 +11,12 @@ let say your app is myapp (c:\xampp\htdocs\myapp)
 - dos prompt > go to c:\xampp\htdocs\myapp\api
 - execute: composer install
 
+If you are using Auth0, put your Auth0 secret key in the .env file and use the token from Auth0 instead. Otherwise this API will generated its own token using Firebase JWT
+
 test api:
 http://localhost/myapp/api
 
-to get JWT token
+to get JWT token (if not using Auth0 token)
 GET http://localhost/myapp/api/token 
 
 sample output:
@@ -72,3 +74,44 @@ JWT authenticated route middleware:
    	return $response->withJson($data, 200)
                       ->withHeader('Content-type', 'application/json');      
 	})->add($jwtauth);
+
+To access secured route using jquery and authorization token:
+
+    //invalid token redirect
+    $.ajaxSetup({
+      statusCode: {
+         401: function(){
+            // Redirec the to the login page here            
+         }
+      }
+   });
+  
+   //set authorization token in header
+   //sessionStorage.token is set either from Auth0 login
+   //or from API login with username/password returning a token (SSL)
+   $.ajaxPrefilter(function( options, oriOptions, jqXHR ) {
+      jqXHR.setRequestHeader("Authorization", sessionStorage.token);
+   }); 
+   
+   //access secured route using the token	
+   $.ajax({
+      type: "GET",
+      url: apiURL + '/testtoken',
+      dataType: "json",
+      success: function(data){
+         //do something here with the json data from the API
+      },
+      error: function() {
+      }
+      /*
+      complete: function(xhr) {
+         //console.log(xhr.status);
+         if (xhr.status == 401) {
+            console.log("AJAX status: " + xhr.status);
+            $("#jwt_status").html("invalid token");
+         }
+      }
+      */
+   });
+   
+   See, even a dummy can easily do JWT authententication :P
