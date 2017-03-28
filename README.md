@@ -1,4 +1,7 @@
 # slimjwtauth
+
+uploaded to heroku: https://desolate-lake-91813.herokuapp.com
+
 Slim auth using JWT for dummies
 
 clone
@@ -89,6 +92,11 @@ To access secured route using jquery and authorization token:
      //set authorization token in header
      //sessionStorage.token is set either from Auth0 login
      //or from API login with username/password returning a token (SSL)
+     //
+     //if you are testing the heroku demo, GET a token and put the token in the header, replacing sessionStorage.token
+     //for example:
+     //- var tokenFromHeroku = " eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyYmsubmV0IiwiaWF0IjoxNDkwNzE1NjIxLCJleHAiOjE0OTA3MTY4MjF9.OfNnti8pmmtikxjCTYxbhjcnoM4STG0HBHHe0TyYtm8";
+     //
      $.ajaxPrefilter(function( options, oriOptions, jqXHR ) {
         jqXHR.setRequestHeader("Authorization", sessionStorage.token);
      }); 
