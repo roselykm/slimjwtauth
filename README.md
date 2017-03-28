@@ -96,7 +96,7 @@ To access secured route using jquery and authorization token:
      //access secured route using the token	
      $.ajax({
        type: "GET",
-       url: apiURL + '/testtoken',
+       url: 'localhost/myapp/api/testtoken',
        dataType: "json",
        success: function(data){
           //do something here with the json data from the API
