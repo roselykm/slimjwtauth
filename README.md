@@ -93,25 +93,16 @@ To access secured route using jquery and authorization token:
       jqXHR.setRequestHeader("Authorization", sessionStorage.token);
    }); 
    
-   //access secured route using the token	
-   $.ajax({
-      type: "GET",
-      url: apiURL + '/testtoken',
-      dataType: "json",
-      success: function(data){
-         //do something here with the json data from the API
-      },
-      error: function() {
-      }
-      /*
-      complete: function(xhr) {
-         //console.log(xhr.status);
-         if (xhr.status == 401) {
-            console.log("AJAX status: " + xhr.status);
-            $("#jwt_status").html("invalid token");
-         }
-      }
-      */
-   });
+     //access secured route using the token	
+     $.ajax({
+       type: "GET",
+       url: apiURL + '/testtoken',
+       dataType: "json",
+       success: function(data){
+          //do something here with the json data from the API
+       },
+       error: function() {
+       }
+    });
    
    See, even a dummy can easily do JWT authententication :P
