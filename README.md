@@ -57,4 +57,18 @@ JWT authenticated route middleware:
 	};
 
 
+ to add middleware to route:
  
+ 	$app->get('/testtoken', function (Request $request, Response $response) {	
+		//$response->getBody()->write("Secure access");
+
+	   //return $response->withStatus(200)
+      //                ->withHeader('Content-type', 'text/plain');
+
+	   $data = Array(
+			"jwt_status" => "token aunthenticated succesfully and valid"
+		);	
+
+   	return $response->withJson($data, 200)
+                      ->withHeader('Content-type', 'application/json');      
+	})->add($jwtauth);
