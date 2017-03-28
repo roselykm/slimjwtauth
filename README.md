@@ -17,16 +17,18 @@ let say your app is myapp (c:\xampp\htdocs\myapp)
 If you are using Auth0, put your Auth0 secret key in the .env file and use the token from Auth0 instead. Otherwise this API will generated its own token using Firebase JWT
 
 test api:
-http://localhost/myapp/api
+    
+	http://localhost/myapp/api
 
-to get JWT token (if not using Auth0 token)
-GET http://localhost/myapp/api/token 
+to get JWT token (if not using Auth0 token):
+
+	    GET http://localhost/myapp/api/token 
 
 sample output:
 
-{
-token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyYmsubmV0IiwiaWF0IjoxNDkwNzE1NjIxLCJleHAiOjE0OTA3MTY4MjF9.OfNnti8pmmtikxjCTYxbhjcnoM4STG0HBHHe0TyYtm8"
-}
+	{
+	token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyYmsubmV0IiwiaWF0IjoxNDkwNzE1NjIxLCJleHAiOjE0OTA3MTY4MjF9.OfNnti8pmmtikxjCTYxbhjcnoM4STG0HBHHe0TyYtm8"
+	}
 
 JWT authenticated route middleware:
 
@@ -87,7 +89,7 @@ To access secured route using jquery and authorization token:
             // Redirec the to the login page here            
          }
       }
-   });
+    });
   
      //set authorization token in header
      //sessionStorage.token is set either from Auth0 login
