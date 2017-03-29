@@ -66,10 +66,10 @@ JWT authenticated route middleware:
 
 to add middleware to route:
  
- 	 $app->get('/testtoken', function (Request $request, Response $response) {
-   	    return $response->withJson($data, 200)
-                            ->withHeader('Content-type', 'application/json');      
-	 })->add($jwtauth);
+	$app->get('/testtoken', function (Request $request, Response $response) {
+	   return $response->withJson($data, 200)
+			   ->withHeader('Content-type', 'application/json');      
+	})->add($jwtauth);
 
 To access secured route using jquery and authorization token:
 
