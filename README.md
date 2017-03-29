@@ -1,18 +1,20 @@
 # slimjwtauth
 
-uploaded to heroku: https://desolate-lake-91813.herokuapp.com
+Demo: uploaded to heroku: 
 
-Slim auth using JWT for dummies
+	https://desolate-lake-91813.herokuapp.com
 
-clone
+Slim auth with route middleware using JWT for dummies
+
+	clone
 
 put in http server - for example xampp (on windows)
 
 let say your app is myapp (c:\xampp\htdocs\myapp)
-- create folder name api in myapp
-- copy all the files into API folder
-- dos prompt > go to c:\xampp\htdocs\myapp\api
-- execute: composer install
+	- create folder name api in myapp
+	- copy all the files into API folder
+	- dos prompt > go to c:\xampp\htdocs\myapp\api
+	- execute: composer install
 
 If you are using Auth0, put your Auth0 secret key in the .env file and use the token from Auth0 instead. Otherwise this API will generated its own token using Firebase JWT
 
