@@ -37,58 +37,49 @@ JWT authenticated route middleware:
 	   $token_array = $request->getHeader('HTTP_AUTHORIZATION');
 
 	   if (count($token_array) == 0) {
-		   $data = Array(
-				"jwt_status" => "token_not_exist"
-			);	
+              $data = Array(
+	         "jwt_status" => "token_not_exist"
+	      );	
 
-	   	return $response->withJson($data, 401)
-                         ->withHeader('Content-type', 'application/json');  				   	
+	      return $response->withJson($data, 401)
+                              ->withHeader('Content-type', 'application/json');  				   	
 	   }
 
-		$token = $token_array[0];
-    	try
-    	{
-    		$tokenDecoded = JWT::decode($token, getenv('JWT_SECRET'), array('HS256'));
-	   	$response = $next($request, $response);
-	   	return $response;    		
-		}
-		catch(Exception $e)
-		{
-		   $data = Array(
-				"jwt_status" => "token_invalid"
-			);	
+	   $token = $token_array[0];
+    	   try
+    	   {
+    	      $tokenDecoded = JWT::decode($token, getenv('JWT_SECRET'), array('HS256'));
+	      $response = $next($request, $response);
+	      return $response;    		
+	   }
+	   catch(Exception $e)
+	   {
+	      $data = Array(
+	         "jwt_status" => "token_invalid"
+	      );	
 
-	   	return $response->withJson($data, 401)
-                         ->withHeader('Content-type', 'application/json');
-		}		
+	      return $response->withJson($data, 401)
+                              ->withHeader('Content-type', 'application/json');
+	   }		
 	};
 
 
  to add middleware to route:
  
- 	$app->get('/testtoken', function (Request $request, Response $response) {	
-		//$response->getBody()->write("Secure access");
-
-	   //return $response->withStatus(200)
-      //                ->withHeader('Content-type', 'text/plain');
-
-	   $data = Array(
-			"jwt_status" => "token aunthenticated succesfully and valid"
-		);	
-
-   	return $response->withJson($data, 200)
-                      ->withHeader('Content-type', 'application/json');      
-	})->add($jwtauth);
+ 	 $app->get('/testtoken', function (Request $request, Response $response) {
+   	    return $response->withJson($data, 200)
+                            ->withHeader('Content-type', 'application/json');      
+	 })->add($jwtauth);
 
 To access secured route using jquery and authorization token:
 
     //invalid token redirect
     $.ajaxSetup({
-      statusCode: {
-         401: function(){
-            // Redirec the to the login page here            
-         }
-      }
+       statusCode: {
+          401: function(){
+             // Redirec the to the login page here            
+          }
+       }
     });
   
      //set authorization token in header
@@ -105,14 +96,14 @@ To access secured route using jquery and authorization token:
    
      //access secured route using the token	
      $.ajax({
-       type: "GET",
-       url: 'localhost/myapp/api/testtoken',
-       dataType: "json",
-       success: function(data){
+        type: "GET",
+        url: 'localhost/myapp/api/testtoken',
+        dataType: "json",
+        success: function(data){
           //do something here with the json data from the API
-       },
-       error: function() {
-       }
+        },
+        error: function() {
+        }
     });
    
-   See, even a dummy can easily do JWT authententication :P
+   As simple as A, B, C :P
