@@ -22,7 +22,7 @@ test api:
 
 to get JWT token (if not using Auth0 token):
 
-	    GET http://localhost/myapp/api/token 
+	GET http://localhost/myapp/api/token 
 
 sample output:
 
