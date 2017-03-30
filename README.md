@@ -33,7 +33,7 @@ sample output:
 	   token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyYmsubmV0IiwiaWF0IjoxNDkwNzE1NjIxLCJleHAiOjE0OTA3MTY4MjF9.OfNnti8pmmtikxjCTYxbhjcnoM4STG0HBHHe0TyYtm8"
 	}
 
-JWT authenticated route middleware:
+JWT authenticated route middleware. The middleware will return 401 status if there is no Authorization token in the header or the token is expired or had been tempered.
 
 	//JWT authentication middleware
 	$jwtauth = function ($request, $response, $next) {
