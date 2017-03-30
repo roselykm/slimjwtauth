@@ -80,6 +80,9 @@ To access secured route using jquery and authorization token:
     $.ajaxSetup({
        statusCode: {
           401: function(){
+	     //clear session data, jwt token etc
+	     localStorage.clear();
+	     
              // Redirec the to the login page here            
           }
        }
