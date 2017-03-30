@@ -19,11 +19,11 @@ let say your app is myapp (c:\xampp\htdocs\myapp)
 	
 What included in the composer package:
 
-    	"slim/slim": "^3.7.0", //Slim Framework
-    	"illuminate/database": "^5.4", //Eloquent ORM for database access
-    	"firebase/php-jwt": "^4.0.0", //JWT
-        "fzaninotto/faker": "^1.6", //Faker
-        "vlucas/phpdotenv": "^2.4" //dot Env	
+	"slim/slim": "^3.7.0", //Slim Framework
+	"illuminate/database": "^5.4", //Eloquent ORM for database access
+	"firebase/php-jwt": "^4.0.0", //JWT
+	"fzaninotto/faker": "^1.6", //Faker
+	"vlucas/phpdotenv": "^2.4" //dot Env	
 
 If you are using Auth0, put your Auth0 secret key in the .env file and use the token from Auth0 instead. Otherwise this API will generated its own token using Firebase JWT and the secret key in the .env file. Make sure you change that to your own secret key.
 
