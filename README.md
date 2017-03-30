@@ -17,7 +17,7 @@ let say your app is myapp (c:\xampp\htdocs\myapp)
 	
 	composer install	
 
-If you are using Auth0, put your Auth0 secret key in the .env file and use the token from Auth0 instead. Otherwise this API will generated its own token using Firebase JWT
+If you are using Auth0, put your Auth0 secret key in the .env file and use the token from Auth0 instead. Otherwise this API will generated its own token using Firebase JWT and the secret key in the .env file. Make sure you change that to your own secret key.
 
 test api:
     
