@@ -92,8 +92,9 @@ To access secured route using jquery and authorization token:
      //if you are testing the heroku demo, GET a token and put the token in the header, replacing sessionStorage.token
      //for example:
      //- var tokenFromHeroku = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJyYmsubmV0IiwiaWF0IjoxNDkwNzE1NjIxLCJleHAiOjE0OTA3MTY4MjF9.OfNnti8pmmtikxjCTYxbhjcnoM4STG0HBHHe0TyYtm8";
-     //sessionStorage.token = tokenFromHeroku
+     //- sessionStorage.token = tokenFromHeroku;
      //
+     // set the jquery ajax global header
      $.ajaxPrefilter(function( options, oriOptions, jqXHR ) {
         jqXHR.setRequestHeader("Authorization", sessionStorage.token);
      }); 
