@@ -23,7 +23,7 @@ pinging the api:
     
 	http://localhost/myapp/api
 
-to get the JWT token (if not using Auth0 token):
+To get the JWT token (if not using Auth0 token). Remember, in real app, token generation will only given to user who do succesful login with username-password to a user database.
 
 	GET http://localhost/myapp/api/token 
 
