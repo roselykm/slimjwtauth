@@ -1,8 +1,7 @@
 # slimjwtauth
 
 Demo: uploaded to heroku: 
-
-	https://desolate-lake-91813.herokuapp.com
+- https://desolate-lake-91813.herokuapp.com
 
 Slim auth with route middleware using JWT for dummies
 
