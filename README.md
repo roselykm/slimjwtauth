@@ -14,7 +14,9 @@ let say your app is myapp (c:\xampp\htdocs\myapp)
 	- create folder name api in myapp
 	- copy all the files into API folder
 	- dos prompt > go to c:\xampp\htdocs\myapp\api
-	- execute: composer install
+	- execute: 
+	
+	composer install	
 
 If you are using Auth0, put your Auth0 secret key in the .env file and use the token from Auth0 instead. Otherwise this API will generated its own token using Firebase JWT
 
