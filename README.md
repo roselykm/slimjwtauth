@@ -6,7 +6,7 @@ Demo: uploaded to heroku:
 
 Slim auth with route middleware using JWT for dummies
 
-	clone
+	clone https://github.com/roselykm/slimjwtauth.git
 
 put in http server - for example xampp (on windows)
 
