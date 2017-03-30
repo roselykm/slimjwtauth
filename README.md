@@ -19,11 +19,11 @@ let say your app is myapp (c:\xampp\htdocs\myapp)
 
 If you are using Auth0, put your Auth0 secret key in the .env file and use the token from Auth0 instead. Otherwise this API will generated its own token using Firebase JWT and the secret key in the .env file. Make sure you change that to your own secret key.
 
-test api:
+pinging the api:
     
 	http://localhost/myapp/api
 
-to get JWT token (if not using Auth0 token):
+to get the JWT token (if not using Auth0 token):
 
 	GET http://localhost/myapp/api/token 
 
@@ -67,7 +67,7 @@ JWT authenticated route middleware. The middleware will return 401 status if the
 	};
 
 
-to add middleware to route:
+to add middleware to secured/authenticated-access-only route:
  
 	$app->get('/testtoken', function (Request $request, Response $response) {
 	   return $response->withJson($data, 200)
