@@ -1,4 +1,4 @@
-# slimjwtauth
+# Very basic SLIM JWT auth - experimenting only
 
 Demo: uploaded to heroku: 
 - https://desolate-lake-91813.herokuapp.com
