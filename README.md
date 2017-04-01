@@ -1,5 +1,9 @@
 # Very basic SLIM JWT auth - experimenting only
 
+UPDATE: Use this repo for a more complete and structured implementation
+
+- https://github.com/roselykm/slim_jwt_route_authentication
+
 Demo: uploaded to heroku: 
 - https://desolate-lake-91813.herokuapp.com
 
